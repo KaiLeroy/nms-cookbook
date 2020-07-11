@@ -12,24 +12,26 @@ function setCharAt(str, index, chr) {
 function injectrecipes(listid, rlist) {
     var resultlist = document.getElementById(listid)
     for (var i in rlist) {
-        resultlist.insertAdjacentHTML('beforeend', '<option value = "' + rlist[i].name + '">')
+        resultlist.insertAdjacentHTML('beforeend', '<option style = "background-image: "icons/' +rlist[i].icon +'"; background-size: "32px 32px";" value = "' + rlist[i].name + '">')
     }
 }
 
 
 class recipe {
-    constructor(name, i1, i2 = [nullingredient], i3 = [nullingredient],) {
+    constructor(name, i1, i2 = [nullingredient], i3 = [nullingredient], icon = "null.png") {
         this.name = name
         this.i1 = i1
         this.i2 = i2
         this.i3 = i3
+        this.icon = icon
     }
 }
 
 class core {
-    constructor(name, origin = '') {
+    constructor(name, origin = '', icon = "null.png") {
         this.name = name
         this.origin = origin
+        this.icon = icon
     }
 }
 
