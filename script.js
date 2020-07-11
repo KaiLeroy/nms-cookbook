@@ -27,13 +27,13 @@ class recipe {
 }
 
 class core {
-    constructor(name, origin) {
+    constructor(name, origin = '') {
         this.name = name
         this.origin = origin
     }
 }
 
-var nullingredient = new core("None", "")
+var nullingredient = new core("None")
 
 var cactusflesh = new core("Cactus Flesh", "Harvestable from Echinocactus")
 var faecium = new core("Faecium", "Harvestable from Gutrot Flowers")
@@ -77,13 +77,14 @@ var stickyhoney = new core("Sticky 'Honey'", "Harvested from tamed blob animals"
 
 var larvalcore = new core("Larval Core", "Harvested at Abandoned Buildings")
 var hypnoeye = new core("Hypnotic Eye", "Abyssal Horror drop")
-var chromametal = new core("Chromatic Metal", "Refined Co, Ca, Em or In and their activated counterparts")
+var chromametal = new core("Chromatic Metal", "Refined stellar metal")
 var carbon = new core("Carbon", "Plants, red crystals")
 var ccarbon = new core("Condensed Carbon", "Refined carbon")
 var salt = new core("Salt", "Various rocks and plants underwater")
 var crabapple = new core("Crab 'Apple'", "Harvested from tamed crab creatures")
 var leopardfruit = new core("Leopard-Fruit", "Harvested from tamed large/medium mammal predators")
 var regisgrease = new core("Regis Grease", "Harvested from tamed dinosaur creatures")
+var carbonnanotubes = new core("Carbon Nanotubes", "Crafted from Carbon by hand")
 
 var cactusnectar = new recipe("Cactus Nectar", [cactusflesh])
 var wildyeast = new recipe("Wild Yeast", [faecium])
@@ -339,6 +340,7 @@ for (var i in window) {
 }
 
 recipelist.sort((a, b) => (a.name > b.name) ? 1 : -1)
+corelist.sort((a, b) => (a.name > b.name) ? 1 : -1)
 
 injectrecipes("layer0s0l0", recipelist)
 
