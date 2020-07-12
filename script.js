@@ -2,6 +2,8 @@ function clearshoplist() {
     shoppingblock = document.getElementById("coresource")
     shoppingblock.innerHTML = ''
     shoppingtext = ''
+    shoppinglist.clear()
+    shoppingcounts.clear()
 }
 
 function setCharAt(str, index, chr) {
@@ -362,7 +364,7 @@ function lockin(id) {
     var form = document.getElementById(formid)
     var nextform = document.getElementById(nextformid)
 
-    var uniques = []
+    var uniques = new Set()
 
     var datalists = form.getElementsByTagName("datalist")
     nextform.insertAdjacentHTML("afterbegin", '<hr>')
@@ -375,14 +377,13 @@ function lockin(id) {
         var currentinput = document.getElementById(currentinputid)
 
         var inputunique = true
-
-        for (var j in uniques) {
-            if (currentinput.value != uniques[j]) {
-                uniques.push(currentinput.value)
-            } else {
-                inputunique = false
-            }
+        
+        if (uniques.has(currentinput.value))
+        {
+            inputunique = false
         }
+
+        uniques.add(currentinput.value)
 
         var inputvalid = false
 
